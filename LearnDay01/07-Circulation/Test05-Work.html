@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+<div id="app">
+  <ul>
+    <li v-for="(item, index) in games"
+        :class="{active: currentIndex === index}"
+        @click="liClick(index)">
+      {{games}}
+    </li>
+  </ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      games: ['LOL', 'CF', 'DNF', 'APEX'],
+      currentIndex: 0   //用于记录哪个是要显示的
+    },
+    methods: {
+      liClick(index) {
+        this.currentIndex = index;
+      }
+    }
+  })
+</script>
+
+</body>
+</html>
