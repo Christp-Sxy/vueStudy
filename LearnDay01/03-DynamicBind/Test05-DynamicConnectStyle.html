@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--  <h2 :style="key{属性名}: value{属性值}"></h2>-->
+<!--  属性一定要加单引号，否则认为是变量-->
+  <h2 :style="{fontsize: '50px'}">{{message}}</h2>
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello'
+    }
+  })
+</script>
+</body>
+</html>

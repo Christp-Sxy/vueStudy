@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <h2>{{firstName + ' ' + lastName}}</h2>
+  <h2>{{firstName}} {{lastName}}</h2>
+  <h2>{{getFullName()}}</h2>
+  <h2>{{fullName}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello',
+      firstName: 'LeBron',
+      lastName: 'James'
+    },
+
+    /*
+    * 一般computed中的函数名称不用表明动词，作为属性使用
+    * 而methods中的尽量标注清楚
+    * */
+    computed: {
+      fullName: function () {
+        return this.firstName + ' ' + this.lastName
+      }
+    },
+
+    methods: {
+      getFullName: function () {
+        return this.firstName + ' ' + this.lastName
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

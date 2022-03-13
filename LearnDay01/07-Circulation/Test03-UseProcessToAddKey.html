@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <!--只有绑定的key具有唯一性，才能有效地进行元素的操作，不会占用过多内存-->
+      <li v-for="item in letters" :key="item">{{item}}</li>
+    </ul>
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        letters: ['A', 'B', 'C']
+      }
+    })
+  </script>
+</body>
+</html>

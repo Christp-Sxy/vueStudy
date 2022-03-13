@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<!--
+    @Description: vue中可做到shuzuxiangyin
+    @Author: Christp
+    @Time: 2022/3/12
+-->
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <ul>
+    <li v-for="item in letters" :key="item">{{item}}</li>
+  </ul>
+  <button @click="btnClick">按钮</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      letters: ['A', 'B', 'C', 'D']
+    },
+    methods: {
+      btnClick() {
+        //1.push方法
+        // this.letters.push('x');
+
+        //2.通过索引值修改数组中的元素（这不是响应式的）
+        // this.letters[0] = 'Y';
+
+        //3.pop() 删除数组中的最后一个元素
+        // this.letters.pop()
+
+        //4.shift() 删除数组中的第一个元素
+        // this.letters.shift()
+
+        //5.unshift() 在数组的第一个元素前添加元素
+        // this.letters.unshift('abc')
+
+        //splice作用: 删除元素/插入元素/替换元素
+        //6.splice()
+        /*
+        * 删除元素：第二个元素输入要删除几个元素(如果没有传就删除后面所有元素)
+        * 替换元素：第二个元素传入要替换几个元素，后面的参数表示所要替换成的元素
+        * 插入元素：第二个参数设置为零，后面的参数表示所要插入的元素
+        * splice(start)
+        *
+        * */
+        // this.letters.splice(1, 2)
+        // this.letters.splice(1, 2, 'v', 'e')
+        // this.splice(1, 0, 'v', 'e')
+
+        //7.sort() 将数组中的所有元素进行排序
+        // this.letters.sort()
+
+        //8.reverse() 将数组元素进行反转
+        // this.letters.reverse()
+
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

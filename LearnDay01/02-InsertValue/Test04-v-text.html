@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<!--
+    @Description:
+    @Author: Christp
+    @Time: 2022/1/24
+-->
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}} World</h2>
+  <!--会覆盖文本-->
+  <h2 v-text="message"> World</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello'
+    }
+  })
+</script>
+</body>
+</html>

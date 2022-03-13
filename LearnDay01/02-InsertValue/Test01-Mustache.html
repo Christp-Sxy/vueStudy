@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<!--
+    @Description:
+    @Author: Christp
+    @Time: 2022/1/24
+-->
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <!--Mustache语法中可插入简单表达式-->
+  <h2>{{firstName + lastName}}</h2>
+  <h2>{{firstName + ' ' + lastName}}</h2>
+  <h2>{{firstName}} {{lastName}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello',
+      firstName: '盛',
+      lastName: '翔宇'
+    }
+  })
+</script>
+</body>
+</html>

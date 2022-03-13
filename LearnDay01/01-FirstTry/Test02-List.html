@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<!--
+    @Description:
+    @Author: Christp
+    @Time: 2022/1/22
+-->
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="item in games">{{item}}</li>
+    </ul>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '盛翔宇',
+            games: ['LOL', 'CF', 'APEX', 'CSGO']
+        }
+    })
+</script>
+</body>
+</html>

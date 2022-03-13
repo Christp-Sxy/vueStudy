@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <!--错误做法，src里不能识别mustache语法，mustache只在内容中实现-->
+  <!--  <img src="https://i1.hdslb.com/bfs/archive/e76ccf523a6cf59b4f4af95bf8b1dacce8bda57c.jpg@220w_138h_1c.webp" alt="">-->
+  <!--  <img src="{{imgURL}}" alt="">-->
+  <img v-bind:src="imgURL" alt="211">
+  <a v-bind:href="aHref">百度</a>
+  <br>
+  {{message}}
+  <br>
+  <img :src="imgURL" alt="211">
+  <a :href="aHref">百度</a>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello',
+      imgURL: 'http://p1.music.126.net/wtB1f1bb1yZAzP2VvKV1Hg==/109951166983520803.jpg?imageView&quality=89',
+      aHref: 'https://www.baidu.com'
+    }
+  })
+</script>
+
+</body>
+</html>

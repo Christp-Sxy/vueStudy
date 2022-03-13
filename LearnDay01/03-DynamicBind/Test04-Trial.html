@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .active{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <p>主要目标,使用v-for 以及 v-bind 当我们点击某一行,某一行变颜色,其他不变</p>
+  <p>集合如下:</p>
+  <ul>
+    <li v-for=" (value,index) in datalist" :class="{'active':cuerys==index}" @click='bander(index)'
+        :title="value">
+      {{index+1}} -- {{value}}
+    </li>
+  </ul>
+  <span>
+           Tips: <br>
+        主要思路: <br>
+        0 增加数组  <br>
+        1 使用 for 循环 将数组循环出来 <br>
+        2 增加变量 cuerys  设置初始值 0 <br>
+        3 增加 class  active 并且判断 cuerys 是否等于index,如果是 则 为true,否则为false,这个时候页面加载就会默认选择第一个 <br>
+        4 增加点击事件,传入index  每次点击 则 cuerys 赋值为当前index
+        <br>
+        </span>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const apps = new Vue({
+    el: "#app",
+    data: {
+      cuerys: 0,
+      datalist: ["Cgrain", "Whatarey", "小半", "陈粒"]
+    },
+    methods: {
+      bander: function (obj) {
+        this.cuerys = obj;
+      }
+    }
+
+  })
+</script>
+</body>
+</html>

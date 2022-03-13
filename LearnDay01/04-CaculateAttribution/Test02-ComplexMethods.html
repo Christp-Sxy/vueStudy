@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <h2>{{totalPrice}}</h2>
+  {{message}}
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello',
+      book: [
+        {id: 101, name: 'LOL', price: 0},
+        {id: 102, name: 'CF', price: 4},
+        {id: 103, name: 'APEX', price: 4},
+        {id: 104, name: 'CSGO', price: 1},
+      ]
+    },
+    computed: {
+      totalPrice: function () {
+        let result = 0;
+        for (let i = 0; i < this.book.length; i++) {
+          result += this.book[i].price;
+        }
+        return result;
+      }
+    }
+  })
+</script>
+
+</body>
+</html>
