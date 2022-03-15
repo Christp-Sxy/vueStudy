@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<!--
+    @Description:
+    @Author: Christp
+    @Time: 2022/3/15
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <!--1.修饰符:lazy[在失去焦点或者会车时才会更新数据]-->
+  <label>
+    <input type="text" v-model.lazy="message">
+  </label>
+  <h2>{{message}}</h2>
+  <!--2.修饰符: number，自动转换数字-->
+  <label>
+    <input type="number" v-model.number="age">
+  </label>
+  <h2>{{age}}-{{typeof age}}</h2>
+  <!--3.修饰符: trim，自动去除空格-->
+  <label>
+    <input type="text" v-model.trim="name">
+  </label>
+  <h2>您输入的名字: {{name}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello',
+      age: '',
+      name: ''
+    }
+  })
+</script>
+
+</body>
+</html>
