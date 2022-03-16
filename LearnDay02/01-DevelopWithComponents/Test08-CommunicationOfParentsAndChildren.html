@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<!--
+    @Description: 父组件想子组件传递数据
+    @Author: Christp
+    @Time: 2022/3/15
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>0</title>
+  <style>
+    .active {
+      color: aqua;
+    }
+  </style>
+</head>
+<body>
+
+<div id="app">
+  <!--如果不用v-bind(直接用:是另一种写法)，那么就不会去寻找vue中定义的数据，直接用双引号里的内容-->
+  <cpn :cgames="games" :cmessages="message"></cpn>
+</div>
+
+<template id="cpn">
+  <div>
+    <ul>
+      <li v-for="(item, index) in cgames" @click="liClick(index)" :class="{active : currentIndex === index}">{{item}}</li>
+    </ul>
+    <p>{{cmessages}}</p>
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+
+  // 父传子: props
+  const cpn = {
+    template: `#cpn`,
+    // props: ['cgames', 'cmessages'],
+    props: {
+      // 1.类型限制
+      // cgames: Array,
+      // cmessages: String,
+
+      // 2.提供一些默认值
+      cmessages: {
+        type: String,
+        default: 'Christp',
+        required: true  //用到的时候必须传入值，否则报错
+      },
+      // 类型是对象或者数组时，默认值必须是一个函数
+      cgames: {
+        type: Array,
+        default() {
+          return []
+        }
+      }
+    },
+    data() {
+      return {
+        currentIndex: 0
+      }
+    },
+    methods: {
+      liClick(index) {
+        this.currentIndex = index
+      }
+    }
+  };
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello',
+      games: ['LOL', 'CF', 'APEX', 'CSGO']
+    },
+    components: {
+      cpn
+    }
+  })
+</script>
+
+</body>
+</html>
