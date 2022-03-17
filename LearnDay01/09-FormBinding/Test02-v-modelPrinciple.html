@@ -1,4 +1,9 @@
 ﻿<!DOCTYPE html>
+<!--
+    @Description: 探索v-model用其他方法如何实现
+    @Author: Christp
+    @Time: 2022/3/17
+-->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -8,10 +13,12 @@
   <div id="app">
 <!--    <input type="text" v-model="message">-->
     <!--v-on:input用于动态监听用户的输入事件-->
-<!--    <input :value="message" @input="valueChange" type="text">-->
     <label>
-      <input type="text" :value="message" @input="$event.target.value">
+      <input :value="message" @input="valueChange" type="text">
     </label>
+    <!--    <label>-->
+<!--      <input type="text" :value="message" @input="$event.target.value">-->
+<!--    </label>-->
     {{message}}
   </div>
 

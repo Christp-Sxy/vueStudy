@@ -1,4 +1,9 @@
 ﻿<!DOCTYPE html>
+<!--
+    @Description: 一些修饰符的理解
+    @Author: Christp
+    @Time: 2022/3/17
+-->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,6 +12,7 @@
 <body>
 
 <!--1. .stop修饰符的使用-->
+<!--可以在事件的传递中强行终止，比如一组冒泡事件到带有stop的修饰符是就会中断-->
 <div id="app" @click="divClick">
   <div>
     <button @click.stop="btnClick">按钮</button>
@@ -15,7 +21,8 @@
 
 <br>
 <!--2. .prevent修饰符的使用-->
-<form action="baidu">
+<!--可以拦截默认事件，比如stop可以阻拦冒泡时事件，但是不会阻止默认事件的发生-->
+<form action="https://www.baidu.com">
   <input type="submit" value="提交" @click.prevent="submitClick">
 </form>
 
@@ -27,6 +34,7 @@
 
 <br>
 <!--4. .once修飾符-->
+<!--只会触发一次，触发后就会被remove掉-->
 <button @click.once="btnClick1">按鈕2</button>
 
 <script src="../js/vue.js"></script>

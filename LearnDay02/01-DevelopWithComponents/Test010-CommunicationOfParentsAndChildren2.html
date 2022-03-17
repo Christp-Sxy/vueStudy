@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<!--
+    @Description: 子传父的组件通信
+    @Author: Christp
+    @Time: 2022/3/16
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<!--vm.$emit( event, arg ) //触发当前实例上的事件
+
+    vm.$on( event, fn );//监听event事件后运行 fn；-->
+
+<!--父组件模板-->
+<div id="app" >
+  <!--这里如果不指定方法传入的变量的话，会自动传入$emit中的第二个参数-->
+  <cpn @itemclick="cpnClick"></cpn>
+</div>
+
+<!--子组件模板-->
+<template id="cpn">
+  <!--template中包含多个标签时必须有一个根标签，也就是说多个标签外必须套在一个大标签里-->
+  <div>
+    <button v-for="item in categories" @click="btnClick(item)">{{item.name}}</button>
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+
+  // 1.子组件
+  const cpn = {
+    template: '#cpn',
+    data() {
+      return {
+        categories: [
+          {id: 'aaa', name: '推荐1'},
+          {id: 'bbb', name: '推荐2'},
+          {id: 'ccc', name: '推荐3'},
+          {id: 'ddd', name: '推荐4'},
+        ]
+      }
+    },
+    methods: {
+      btnClick(item) {
+        this.$emit('itemclick', item)
+      }
+    }
+  }
+
+  // 2.父组件
+  const app = new Vue({
+    el: '#app',
+    data: {
+      info: {
+        name: 'Christp',
+        age: 20,
+        height: 1.85
+      },
+      message: 'abcd'
+    },
+    components: {
+      cpn
+    },
+    methods: {
+      cpnClick(item) {
+        console.log("点击成功", item)
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

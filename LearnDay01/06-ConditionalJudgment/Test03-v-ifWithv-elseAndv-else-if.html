@@ -1,4 +1,9 @@
 ﻿<!DOCTYPE html>
+<!--
+    @Description: v-else-if的使用
+    @Author: Christp
+    @Time: 2022/3/17
+-->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -8,9 +13,9 @@
 
 <div id="app">
   <h2 v-if="score >= 90">优秀</h2>
-  <h2 v-if="score >= 80">良好</h2>
-  <h2 v-if="score >= 60">及格</h2>
-  <h2 v-else-if="">不及格</h2>
+  <h2 v-else-if="score >= 80">良好</h2>
+  <h2 v-else-if="score >= 60">及格</h2>
+  <h2 v-else="">不及格</h2>
 </div>
 
 <script src="../js/vue.js"></script>
