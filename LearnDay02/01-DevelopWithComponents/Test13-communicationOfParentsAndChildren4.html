@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<!--
+    @Description: 父子通信之子访问父 root
+    @Author: Christp
+    @Time: 2022/3/19
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <cpn></cpn>
+</div>
+
+
+<template id="cpn">
+  <div>
+    <ccpn></ccpn>
+  </div>
+</template>
+
+<template id="ccpn">
+  <div>
+  这是一个子组件
+  <button @click="btnClick">试述</button>
+</div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello'
+    },
+    components: {
+      cpn: {
+        template: '#cpn',
+        data() {
+          return {
+            name: '我是cpn组件的name'
+          }
+        },
+        components: {
+          ccpn: {
+            template: '#ccpn',
+            methods: {
+              btnClick() {
+                // 1.访问父组件$parent
+                console.log(this.$parent);
+                console.log(this.$parent.name);
+                // 2.访问根组件(直接访问vue实例中的属性)
+                console.log(this.$root.message);
+              }
+            }
+          }
+        }
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

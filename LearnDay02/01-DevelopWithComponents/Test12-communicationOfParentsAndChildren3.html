@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<!--
+    @Description: 父组件访问子组件的方式之$children
+    @Author: Christp
+    @Time: 2022/3/19
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <cpn ref="aaa"></cpn>
+  <cpn ref="bbb"></cpn>
+  <cpn ref="ccc"></cpn>
+  <button @click="btnClick">案例研究</button>
+  {{message}}
+</div>
+
+
+<template id="cpn">
+  <div>
+    这是一个子组件
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello'
+    },
+    methods: {
+      btnClick() {
+        // 1.$children
+        // for (let argument of this.$children) {
+        //   console.log(argument.name);
+        //   argument.showMessage();
+        // }
+
+        // 2.$refs
+        console.log(this.$refs.aaa.name);
+      }
+    },
+    components: {
+      cpn: {
+        template: '#cpn',
+        data() {
+          return {
+            name: '名字'
+          }
+        },
+        methods: {
+          showMessage() {
+            console.log('showMessage');
+          }
+        }
+      }
+    }
+  })
+</script>
+
+</body>
+</html>
