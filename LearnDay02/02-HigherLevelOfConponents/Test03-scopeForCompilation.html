@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<!--
+    @Description: 编译的作用域
+    @Author: Christp
+    @Time: 2022/3/19
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--
+  父组件模板中的所有东西都会在父级作用域内编译
+  子组件模板的所有东西都会在子级作用域内编译
+-->
+
+
+<!--在使用时，使用的vue标签，其作用域就是创建的vue实例中-->
+<div id="app">
+  <!--这里的v-show标签找到的结果是true-->
+  <cpn v-show="isShow"></cpn>
+</div>
+
+<!--在模板中使用vue标签的话，作用域就是所创建的组件中-->
+<template id="cpn">
+  <div>
+    <!--这里的v-show找到的结果是false-->
+    <h2 v-show="isShow">子组件</h2>
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello',
+      isShow: true
+    },
+    component: {
+      cpn: {
+        template: '#cpn',
+        data() {
+          return {
+            isShow: false
+          }
+        }
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

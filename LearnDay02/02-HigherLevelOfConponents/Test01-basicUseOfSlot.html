@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<!--
+    @Description: 插槽的基本使用
+    @Author: Christp
+    @Time: 2022/3/19
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <cpn><button>案例</button></cpn>
+  <cpn><span>都是免费</span></cpn>
+  <cpn>
+    <i>哎呀</i>
+    <p>没事的啦</p>
+    <p>咱都几把哥们，跟谁俩呢</p>
+  </cpn>
+  <cpn></cpn>
+</div>
+
+<template id="cpn">
+  <div>
+    <h2>这是一个组件</h2>
+    <!--这里可以设置一个默认值，如果不设的话，那就每次要用的时候添加属性-->
+    <slot><p>哈哈哈哈哈哈</p></slot>
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello'
+    },
+    components: {
+      cpn: {
+        template: '#cpn'
+      }
+    }
+  })
+</script>
+
+</body>
+</html>
